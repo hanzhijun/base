@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo-0512</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <script src="../../static/js/comm.js"></script>
+    <style>
+        #cover {
+            background-color: #000;
+            opacity: .6;
+        }
+    </style>
+</head>
+<body>
+<h1 id="abc">DEMO-0512</h1>
+<div id="tc" style="width: 100px; height: 100px; background-color: #000;"></div>
+<div id="div" style="width: 2000px; height: 1500px; font-size: 14px; line-height: 23px; padding-left: 20px;">
+    screen.width 电脑屏幕的宽度<br>
+    screen.height 电脑屏幕的高度<br>
+    screen.availWidth 可用于显示浏览器的最大宽度(这里考虑减去电脑屏幕下方工具栏的宽度)<br>
+    screen.availHeight 可用于显示浏览器的最大高度<br>
+    window.screenTop 浏览器窗口距离电脑屏幕上边界的距离<br>
+    window.screenLeft 浏览器窗口距离电脑屏幕左边界的距离<br><br>
+
+    window.innerWidth 网页正文的内部宽度，即网页正文的可视宽度，即在浏览器上能看见的部分的宽度，该宽度就是可视页面加上滚动条组件的宽度<br>
+    window.innerHeight 网页正文的内部高度，即网页正文的可视高度，即在浏览器上能看见的部分的高度，滚动条处同理。<br>
+    window.outerWidth 浏览器窗口的外部宽度<br>
+    window.outerHeight 浏览器窗口的外部高度<br><br>
+
+    window.pageYOffset 需要网页存在滚动条才可以，存在竖向滚动条时，网页正文向下滚动一段距离n px，该值即为n<br>
+    window.pageXOffset 同理，无滚动条值为0，存在横向滚动条时，网页正文(注意是正文，不是滚动条)向右滚动一段距离n px，该值即为n<br>
+    document.body.scrollTop 与上一对值相同（滚动条位置）<br>
+    document.body.scrollLeft);<br>
+    document.documentElement.scrollTop 与上一对值相同（与上一对都是获得滚动条位置，但是存在兼容问题，具体与html文件头的<\DOCTYPE<br>
+    ...>有关，上一对值为0的时候这一对显示正常，这一对为0的时候上一对值显示正常）<br>
+    document.documentElement.scrollLeft);<br><br>
+
+    document.documentElement.scrollWidth 整个网页的宽度，即整个给用户观看的网页部分的宽度（无横向滚动条时即为网页宽度，有滚动条则加上滚动条可以滚动部分网页的宽度）<br>
+    document.documentElement.scrollHeight 整个网页的高度(如果有body{border:10px solid red;}，该边界宽也算进去)<br>
+    document.body.scrollWidth 与上一对值相同<br>
+    document.body.scrollHeight<br><br>
+
+    document.documentElement.offsetWidth<br>
+    可视区域的宽度，但是不包含滚动条组件的十几px像素，同document.documentElement.clientWidth(如果有body{border:10px solid red;}，该边界宽也算进去)<br>
+    document.documentElement.offsetHeight 整个网页的高度,同document.body.scrollHeight(如果有body{border:10px solid red;}，该边界宽也算进去)<br>
+    document.body.offsetWidth 与上一对值相同<br>
+    document.body.offsetHeight<br><br>
+
+    document.documentElement.clientWidth 页面可视宽度，但是不包含滚动条组件的十几px像素(如果有body{border:10px solid red;}，该边界宽也算进去)<br>
+    document.documentElement.clientHeight 可视区域高度，document.documentElement 实际上就是 \<\html\><br>
+    元素,只不过显示的是可见的部分，即浏览器窗口大小（网页无滚动条时与window.innerHeight同值）<br>
+    document.body.clientWidth 与上一对值意义完全不同，这是body的宽度，即审查元素时body元素的宽度，但是不包含边线，例如body{border:10px solid<br>
+    red;}，这边界的宽度是不会算在里面的<br>
+    document.body.clientHeight body的高度,即审查元素时body元素的宽度（理同）<br>
+
+    javascript中获取dom元素高度和宽度的方法如下：<br>
+
+    网页可见区域宽： document.body.clientWidth<br>
+    网页可见区域高： document.body.clientHeight<br>
+    网页可见区域宽： document.body.offsetWidth (包括边线的宽)<br>
+    网页可见区域高： document.body.offsetHeight (包括边线的高)<br>
+    网页正文全文宽： document.body.scrollWidth<br>
+    网页正文全文高： document.body.scrollHeight<br>
+    网页被卷去的高： document.body.scrollTop<br>
+    网页被卷去的左： document.body.scrollLeft<br>
+
+    对应的dom元素的宽高有以下几个常用的：<br>
+
+    元素的实际高度：document.getElementById("div").offsetHeight<br>
+    元素的实际宽度：document.getElementById("div").offsetWidth<br>
+    元素的实际距离左边界的距离：document.getElementById("div").offsetLeft<br>
+    元素的实际距离上边界的距离：document.getElementById("div").offsetTop<br>
+</div>
+
+<div id="cover"></div>
+</body>
+</html>

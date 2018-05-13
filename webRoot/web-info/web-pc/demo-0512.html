@@ -6,16 +6,30 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <script src="../../static/js/comm.js"></script>
     <style>
-        #cover {
-            background-color: #000;
-            opacity: .6;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        p {
+            padding: 10px;
+            font-size: 12px;
+            line-height: 26px;;
         }
     </style>
 </head>
 <body>
+<p>
+    <button onclick="$_$.show('abc')">显示</button> $_$.show('abc')<br>
+    <button onclick="$_$.hide('abc')">隐藏</button> $_$.hide('abc')<br>
+</p>
 <h1 id="abc">DEMO-0512</h1>
-<div id="tc" style="width: 100px; height: 100px; background-color: #000;"></div>
-<div id="div" style="width: 2000px; height: 1500px; font-size: 14px; line-height: 23px; padding-left: 20px;">
+<p>
+    <button onclick="$_$tc.show('tc')">弹出弹窗</button> $_$tc.show('tc')<br>
+    <button onclick="$_$loading.show('加载中...')">loading加载</button> $_$loading.show('加载中...')<br>
+    <button onclick="$_$loading.hide()">loading隐藏</button> $_$loading.hide()
+</p>
+<div id="tc" style="width: 300px; height: 300px; background-color: #000; display: none"></div>
+<div id="div" style="width: 1200px; height: 650px; font-size: 14px; line-height: 23px; padding-left: 20px;">
     screen.width 电脑屏幕的宽度<br>
     screen.height 电脑屏幕的高度<br>
     screen.availWidth 可用于显示浏览器的最大宽度(这里考虑减去电脑屏幕下方工具栏的宽度)<br>
@@ -73,6 +87,5 @@
     元素的实际距离上边界的距离：document.getElementById("div").offsetTop<br>
 </div>
 
-<div id="cover"></div>
 </body>
 </html>

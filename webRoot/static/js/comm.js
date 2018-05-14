@@ -427,3 +427,5 @@ window.onload = function () {
     $_$user.inWx();
     $_$cookie.set('', '');
 };
+
+output(typeof (function () {output("Hello World!")})());

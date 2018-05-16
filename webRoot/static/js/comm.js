@@ -428,4 +428,7 @@ window.onload = function () {
     $_$cookie.set('', '');
 };
 
-output(typeof (function () {output("Hello World!")})());
+var mergeTwoLists = function(l1, l2) {
+    let arr = l1.concat(l2);
+    return arr.sort();
+};

@@ -24,8 +24,22 @@
      * @param {number} n
      * @return {string[]}
      */
-    var generateParenthesis = function(n) {
+    var generateParenthesis = function (n) {
 
+        if (n == 1) {
+            return ['()'];
+        }
+
+        let arr = ['()'], x = 1;
+        for (var i = 2; i <= n; i++) {
+            for (var a = 0; a < arr.length; a ++) {
+                var h = arr[a].length;
+                var cha = 0;
+                for (var c = 0; c<h+1; c++) {
+
+                }
+            }
+        }
     };
 </script>
 </body>

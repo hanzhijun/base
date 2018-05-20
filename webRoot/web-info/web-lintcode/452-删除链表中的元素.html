@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>删除链表中的元素</title>
+</head>
+<body>
+<pre>
+452. 删除链表中的元素
+删除链表中等于给定值val的所有节点。
+
+样例
+给出链表 1->2->3->3->4->5->3, 和 val = 3, 你需要返回删除3之后的链表：1->2->4->5。
+</pre>
+<script>
+    /**
+     * @param head: a ListNode
+     * @param val: An integer
+     * @return: a ListNode
+     */
+    const removeElements = function (head, val) {
+        if(val == "") {
+            return head;
+        }
+/*        for (let i = head.length - 1; i > 0; i--) {
+            if (head[i] == val) {
+                head.splice(i, 1);
+            }
+        }
+        return head;*/
+        let result = [];
+        let arr = head.split('->');
+        for (var i in arr) {
+            if(arr[i] != val) {
+                result.push(arr[i]);
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

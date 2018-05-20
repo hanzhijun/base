@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>反转一个3位整数</title>
+</head>
+<body>
+<pre>
+37. 反转一个3位整数
+反转一个只有3位数的整数。
+
+样例
+123 反转之后是 321。
+900 反转之后是 9。
+</pre>
+
+<script>
+    /**
+     * @param number: A 3-digit number.
+     * @return: Reversed number.
+     */
+    const reverseInteger = function (number) {
+        return number % 10 * 100 + Math.floor(number % 100 / 10) * 10 + Math.floor(number / 100);
+    }
+</script>
+</body>
+</html>

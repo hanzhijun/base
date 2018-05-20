@@ -36,15 +36,15 @@
 </pre>
 
 <script>
-    var isValid = function (s) {
-        var len = s.length / 2;
-        for (var i = 0; i < len; i++) {
-            s = s.replace(/\(\)/, '').replace(/\{}/, '').replace(/\[]/, '');
-        }
-        return s == "" ? true : false;
-    };
-    isValid("()[]{}");
-
+var isValid = function (s) {
+    var len = s.length / 2;
+    for (var i = 0; i < len; i++) {
+        s = s.replace(/\(\)/, '').replace(/\{}/, '').replace(/\[]/, '');
+    }
+    return s == "" ? true : false;
+};
+var s = "()[]{}";
+isValid(s);
 </script>
 </body>
 </html>

@@ -28,18 +28,30 @@
 </pre>
 
 <script>
-    /**
-     * @param {number} x
-     * @return {boolean}
-     */
-    var isPalindrome = function (x) {
-        let arr = (x + '').split('').reverse(), str = '';
-        for (var i in arr) {
-            str += arr[i];
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function (x) {
+    let arr = (x + '').split('').reverse(), str = '';
+    for (var i in arr) {
+        str += arr[i];
+    }
+    return str == (x + '') ? true : false;
+};
+
+var x = 87578;
+isPalindrome(x);
+
+    var isPalindrome2 = function (x) {
+        if (x < 0) {
+            return false;
+        } else if (x == 0) {
+            return true;
+        } else {
+
         }
-        return str == (x + '') ? true : false;
     };
-    isPalindrome(8745);
 </script>
 </body>
 </html>

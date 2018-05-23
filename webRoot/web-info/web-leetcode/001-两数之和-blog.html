@@ -19,22 +19,22 @@
 </pre>
 
 <script>
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var nums = [2, 7, 11, 15], target = 9;
-var twoSum = function(nums, target) {
-    for(var i in nums) {
-        for (var j in nums) {
-            if(i != j && (nums[i] + nums[j] == target)) {
-                return [i * 1, j * 1];
+    /**
+     * @param {number[]} nums
+     * @param {number} target
+     * @return {number[]}
+     */
+    var nums = [2, 7, 11, 15], target = 9;
+    var twoSum = function (nums, target) {
+        for (var i in nums) {
+            for (var j in nums) {
+                if (i != j && (nums[i] + nums[j] == target)) {
+                    return [i, j];
+                }
             }
         }
-    }
-};
-twoSum(nums, target);
+    };
+    twoSum(nums, target);
 </script>
 </body>
 </html>

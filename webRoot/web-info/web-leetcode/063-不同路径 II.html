@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不同路径 II</title>
+</head>
+<body>
+<pre>
+一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
+
+机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
+
+现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？
+
+
+
+网格中的障碍物和空位置分别用 1 和 0 来表示。
+
+说明：m 和 n 的值均不超过 100。
+
+示例 1:
+
+输入:
+[
+  [0,0,0],
+  [0,1,0],
+  [0,0,0]
+]
+输出: 2
+解释:
+3x3 网格的正中间有一个障碍物。
+从左上角到右下角一共有 2 条不同的路径：
+1. 向右 -> 向右 -> 向下 -> 向下
+2. 向下 -> 向下 -> 向右 -> 向右
+
+这题是前面第62题的加强版，本质上还是通项公式，
+
+s[i j] = s[i-1, j] + s[i, j-1]
+
+只不过在遇到格子[i,j]的时候直接赋0（此路不通）就可以了。注意，i=0和j=0的时候要小心处理，必须赋前一个或者上一个的值。
+</pre>
+
+<script>
+    /**
+     * @param {number[][]} obstacleGrid
+     * @return {number}
+     */
+    let obstacleGrid = [
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+    ];
+    let uniquePathsWithObstacles = function (obstacleGrid) {
+        let m = obstacleGrid.length;
+        if (m === 0) return 0;
+        let n = obstacleGrid[0].length;
+
+        var list = getList(m, n);
+        return list[m - 1][n - 1];
+
+        function getList(m, n) {
+            let list = new Array(m);
+            for (let i = 0; i < m; i++) {
+                let arr = new Array(n);
+                for (let j = 0; j < n; j++) {
+                    if (obstacleGrid[i][j] == 1) arr[j] = 0;
+                    else if (i === 0 && j === 0) arr[j] = 1;
+                    else if (i === 0) arr[j] = arr[j - 1];
+                    else if (j === 0) arr[j] = list[i - 1][j];
+                    else {
+                        arr[j] = list[i - 1][j] + arr[j - 1];
+                    }
+                }
+                list[i] = arr;
+            }
+            return list;
+        }
+    };
+
+    uniquePathsWithObstacles(obstacleGrid);
+</script>
+</body>
+</html>

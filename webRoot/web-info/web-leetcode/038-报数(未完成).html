@@ -36,23 +36,23 @@
      * @param {number} n
      * @return {string}
      */
-    var countAndSay = function (n) {
-        var a = ['1'];
-        for (var i = 1; i < n; i++) {
+    const countAndSay = function (n) {
+        let a = ['1'];
+        for (let i = 1; i < n; i++) {
             a = nextSeq(a);
             console.log(a);
         }
         return a.join("");
 
         function nextSeq(arr) {
-            var len = arr.length;
-            var nextArr = [];
-            var iLeft = 0;
-            var i = iLeft;
+            let len = arr.length;
+            let nextArr = [];
+            let iLeft = 0;
+            let i = iLeft;
             while (i < len) {
                 while (arr[i] == arr[iLeft] && i < len) i++;
                 //arr[i] is the first value which is different from arr[iLeft]
-                var num = i - iLeft;
+                let num = i - iLeft;
                 nextArr.push(num.toString());
                 nextArr.push(arr[iLeft]);
                 iLeft = i;

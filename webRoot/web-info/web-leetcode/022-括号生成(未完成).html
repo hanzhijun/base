@@ -24,21 +24,40 @@
      * @param {number} n
      * @return {string[]}
      */
-    var generateParenthesis = function (n) {
+    const generateParenthesis = function (n) {
 
-        if (n == 1) {
-            return ['()'];
-        }
+        let result = [];
+        addSign(1);
 
-        let arr = ['()'], x = 1;
-        for (var i = 2; i <= n; i++) {
-            for (var a = 0; a < arr.length; a ++) {
-                var h = arr[a].length;
-                var cha = 0;
-                for (var c = 0; c<h+1; c++) {
+        function addSign(x) {
 
+            if (x == 1) result.push('()');
+            let list = [];
+            for (let i = 0; i < result.length; i++) {
+                let str = result[i];
+                for (let j = 0; j < str.length + 1; j++) {
+                    let str2 = insertSign(str, j);
+                    if (checkTure(str2) && list.includes(str2) == false) {
+                        list.push(str2);
+                    }
                 }
             }
+            result = list.concat();
+            if (x < n) addSign(x + 1);
+            if (x == n) return result;
+        }
+
+        function checkTure(text) {
+            while (text.indexOf('()') != -1) {
+                text.replace(/()/, '');
+            }
+            return text == "" ? true : false;
+        }
+
+        function insertSign(text, index) {
+            if (index == 0) return '()' + text;
+            if (index == text.length) return text + '()';
+            return text.substring(0, index) + '()' + text.substring(index, text.length);
         }
     };
 </script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>反转字符串中的元音字母</title>
+</head>
+<body>
+<pre>
+编写一个函数，以字符串作为输入，反转该字符串中的元音字母。
+
+示例 1：
+给定 s = "hello", 返回 "holle".
+
+示例 2：
+给定 s = "leetcode", 返回 "leotcede".
+
+注意:
+元音字母不包括 "y".
+
+1. 遍历字符串，遇到不是元音字母的字符，将其索引与数值存进一list中。
+2. 将字符串中非元音字符替换掉。再反转该字符str2。
+3. 在上面的字符串str2中，插入list中存储的数值，依照保存的索引值插入到相应位置。
+</pre>
+
+<script>
+    /**
+     * @param {string} s
+     * @return {string}
+     */
+    let s = "leetcode";
+    let reverseVowels = function (s) {
+
+        let arr = ['a', 'e', 'i', 'o', 'u'];
+        let list = [];
+        for (let i = 0; i < s.length; i++) {
+            if (arr.includes(s[i].toLowerCase()) == false) {
+                list.push([i, s[i]]);
+            }
+        }
+        let str = s.replace(/[^AaEeIiOoUu]/g, "");
+        let len = str.length;
+        str2 = "";
+        for (let i = 0; i < len; i++) {
+            str2 += str[len - [i + 1]];
+        }
+        for (let i = 0; i < list.length; i++) {
+            str2 = str2.substring(0, list[i][0]) + list[i][1] + str2.substring(list[i][0], str2.length);
+        }
+        return str2;
+
+    };
+</script>
+</body>
+</html>

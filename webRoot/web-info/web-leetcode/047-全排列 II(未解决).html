@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>全排列 II</title>
+</head>
+<body>
+<pre>
+给定一个可包含重复数字的序列，返回所有不重复的全排列。
+
+示例:
+输入: [1,1,2]
+输出:
+[
+  [1,1,2],
+  [1,2,1],
+  [2,1,1]
+]
+</pre>
+
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+let nums = [-1, 2, -1, 2, 1, -1, 2, 1];
+let permuteUnique = function (nums) {
+    let len = nums.length;
+    let result = [];
+    let used = [];
+    let list = [];
+
+    for (let i = 0; i < len; i++) {
+        used.push(false);
+    }
+
+    nums.sort(function (a, b) {
+        return a - b
+    });
+
+    permutef();
+    return result;
+
+    function permutef() {
+        if (list.length == len) {
+            result.push(list.slice());
+            return;
+        }
+        for (let i = 0; i < len; i++) {
+            if (used[i]) continue;
+            if (i > 0 && !used[i - 1] && nums[i] == nums[i - 1]) continue;
+            used[i] = true;
+            list.push(nums[i]);
+            permutef();
+            used[i] = false;
+            list.pop();
+        }
+    }
+};
+</script>
+</body>
+</html>

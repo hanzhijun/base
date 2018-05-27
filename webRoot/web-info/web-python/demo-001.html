@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>001</title>
+</head>
+<body>
+<pre>
+题目：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？
+程序分析：可填在百位、十位、个位的数字都是1、2、3、4。组成所有的排列后再去 掉不满足条件的排列。
+</pre>
+
+<script>
+    let list = [1, 2, 3, 4];
+    var demo001 = function (list) {
+        let len = 0, arrs = [];
+        for (let i in list) {
+            for (let j in list) {
+                for (let k in list) {
+                    if (list[i] != list[j] && list[i] != list[k] && list[k] != list[j]) {
+                        num = ('' + list[i] + list[j] + list[k]) * 1;
+                        if (arrs.includes(num) == false) {
+                            len += 1;
+                            arrs.push(num);
+                        }
+                    }
+                }
+            }
+        }
+        console.log(len);
+        console.log(arrs);
+    };
+    demo001(list);
+
+
+</script>
+</body>
+</html>

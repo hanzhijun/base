@@ -13,43 +13,45 @@
 注意：给定 n 是一个正整数。
 
 示例 1：
-
 输入： 2
 输出： 2
 解释： 有两种方法可以爬到楼顶。
 1.  1 步 + 1 步
 2.  2 步
-示例 2：
 
+示例 2：
 输入： 3
 输出： 3
+
 解释： 有三种方法可以爬到楼顶。
 1.  1 步 + 1 步 + 1 步
 2.  1 步 + 2 步
 3.  2 步 + 1 步
+
+
 </pre>
 
 <script>
-    /**
-     * @param {number} n
-     * @return {number}
-     */
-    var climbStairs = function (n) {
-        let one = 1;
-        let two = 2;
-        if (n == 1) {
-            return one;
-        } else if (n == 2) {
-            return two;
-        } else {
-            for (let i = 3; i < n + 1; i++) {
-                three = one + two;
-                one = two;
-                two = three;
-            }
-            return two;
+/**
+ * @param {number} n
+ * @return {number}
+ */
+let climbStairs = function (n) {
+    let one = 1;
+    let two = 2;
+    if (n == 1) {
+        return one;
+    } else if (n == 2) {
+        return two;
+    } else {
+        for (let i = 3; i < n + 1; i++) {
+            three = one + two;
+            one = two;
+            two = three;
         }
-    };
+        return two;
+    }
+};
 </script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>006</title>
+</head>
+<body>
+<pre>
+题目：斐波那契数列。
+
+程序分析：斐波那契数列（Fibonacci sequence），又称黄金分割数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……。
+
+在数学上，费波那契数列是以递归的方法来定义：
+
+F0 = 0     (n=0)
+F1 = 1    (n=1)
+Fn = F[n-1]+ F[n-2](n=>2)
+</pre>
+
+<p>输出前n位斐波那契数列 <input id="testInput" type="number">
+    <button onclick="test006()">确定</button>
+</p>
+
+<script>
+    let test006 = function () {
+        let num = document.getElementById('testInput').value * 1;
+        if (num == 1) {
+            console.log("数列为：" + [1]);
+            console.log("总和为：" + 1);
+            console.log("第1个数为：1");
+            return;
+        } else if (num == 2) {
+            console.log("数列为：" + [1, 1]);
+            console.log("总和为：" + 2);
+            console.log("第2个数为：1");
+            return;
+        }
+        let nums = [1, 1];
+        let total = 1;
+        for (let i = 3; i < num + 1; i++) {
+            nums.push(nums[i - 2] + nums[i - 3]);
+            total += nums[i - 2] + nums[i - 3];
+        }
+        console.log("数列为：" + nums);
+        console.log("总和为：" + total);
+        console.log("第" + num + "个数为：" + nums[nums.length - 1]);
+    }
+</script>
+</body>
+</html>

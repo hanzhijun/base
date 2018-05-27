@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>010</title>
+</head>
+<body>
+<pre>
+    题目：暂停一秒输出，并格式化当前时间。
+</pre>
+
+<p>暂停一秒再输出，并格式化当前时间 <input id="testInput" type="text" placeholder="填写输出内容">
+    <button onclick="demo010()">确定</button>
+</p>
+
+<script>
+    let demo010 = function () {
+        let str = document.getElementById('testInput').value;
+        let time = new Date();
+        setTimeout(function () {
+            console.log(str);
+            console.log(time);
+        }, 1000);
+    }
+</script>
+</body>
+</html>

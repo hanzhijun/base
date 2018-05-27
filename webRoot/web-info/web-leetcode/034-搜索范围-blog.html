@@ -29,25 +29,18 @@
  * @param {number} target
  * @return {number[]}
  */
-var nums = [5, 7, 7, 8, 8, 10], target = 8;
-var searchRange = function (nums, target) {
-    var left, right;
-    for (var i in nums) {
+let nums = [5, 7, 7, 8, 8, 10], target = 8;
+let searchRange = function (nums, target) {
+    let left, right;
+    for (let i in nums) {
         if (nums[i] == target) {
-            if (left == undefined) {
-                left = i * 1;
-            } else {
-                right = i * 1;
-            }
+            if (left == undefined) left = i * 1;
+            else right = i * 1;
         }
     }
-    if (left == undefined && right == undefined) {
-        return [-1, -1];
-    } else if (right == undefined) {
-        return [left, left];
-    } else {
-        return [left, right];
-    }
+    if (left == undefined && right == undefined) return [-1, -1];
+    else if (right == undefined) return [left, left];
+    else return [left, right];
 };
 searchRange(nums, target);
 </script>

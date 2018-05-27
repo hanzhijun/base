@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>009</title>
+</head>
+<body>
+<pre>
+题目：暂停一秒输出。
+
+程序分析：使用 time 模块的 sleep() 函数。
+</pre>
+
+<p>暂停一秒再输出 <input id="testInput" type="text" placeholder="填写输出内容">
+    <button onclick="demo009()">确定</button>
+</p>
+
+<script>
+    let demo009 = function () {
+        let str = document.getElementById('testInput').value;
+        setTimeout(function () {
+            console.log(str);
+        }, 1000);
+    }
+</script>
+</body>
+</html>

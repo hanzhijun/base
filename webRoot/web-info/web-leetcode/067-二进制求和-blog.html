@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二进制求和</title>
+</head>
+<body>
+<pre>
+给定两个二进制字符串，返回他们的和（用二进制表示）。
+
+输入为非空字符串且只包含数字 1 和 0。
+
+示例 1:
+输入: a = "11", b = "1"
+输出: "100"
+
+示例 2:
+输入: a = "1010", b = "1011"
+输出: "10101"
+</pre>
+
+<script>
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+let addBinary = function (a, b) {
+    a = a.split('').reverse().join('');
+    b = b.split('').reverse().join('');
+    let len = Math.max(a.length, b.length);
+    let upTwo = false;
+    let strs = [];
+    for (let i = 0; i < len + 1; i++) {
+        let strA = a[i] == undefined ? 0 : a[i] * 1;
+        let strB = b[i] == undefined ? 0 : b[i] * 1;
+
+        if (upTwo == true) str = strA + strB + 1;
+        else str = strA + strB;
+
+        if (str >= 2) upTwo = true;
+        else upTwo = false;
+        str = str % 2;
+        strs.push(str);
+    }
+
+    strs = strs.reverse().join('');
+
+    while (strs[0] == 0) {
+        checkZero();
+    }
+    if (strs == "") strs = '0';
+    return strs;
+
+    function checkZero() {
+        strs = strs.substring(1, strs.length);
+    }
+};
+</script>
+</body>
+</html>

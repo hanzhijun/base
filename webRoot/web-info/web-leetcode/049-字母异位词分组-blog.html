@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>字母异位词分组</title>
+</head>
+<body>
+<pre>
+给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+
+示例:
+输入: ["eat", "tea", "tan", "ate", "nat", "bat"],
+输出:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+
+说明：
+所有输入均为小写字母。
+不考虑答案输出的顺序。
+</pre>
+
+<script>
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+
+let groupAnagrams = function (strs) {
+    let list = {}, letter = [], result = [];
+
+    for (let i = 0; i < strs.length; i++) {
+        if (strs[i] == "") {
+            if (list[0] == undefined) {
+                list[0] = [""];
+                letter.push('0');
+            } else {
+                list[0].push("");
+            }
+        } else {
+            if (list[strs[i].split('').sort().join('')] == undefined) {
+                list[strs[i].split('').sort().join('')] = [strs[i]];
+                letter.push(strs[i].split('').sort().join(''));
+            } else {
+                list[strs[i].split('').sort().join('')].push(strs[i]);
+            }
+        }
+    }
+
+    for (let k = 0; k < letter.length; k++) {
+        result.push(list[letter[k]]);
+    }
+
+    return JSON.stringify(result);
+};
+</script>
+</body>
+</html>

@@ -12,23 +12,21 @@
 
 问总共有多少条不同的路径？
 
-
-
 例如，上图是一个7 x 3 的网格。有多少可能的路径？
 
 说明：m 和 n 的值均不超过 100。
 
 示例 1:
-
 输入: m = 3, n = 2
 输出: 3
+
 解释:
 从左上角开始，总共有 3 条路径可以到达右下角。
 1. 向右 -> 向右 -> 向下
 2. 向右 -> 向下 -> 向右
 3. 向下 -> 向右 -> 向右
-示例 2:
 
+示例 2:
 输入: m = 7, n = 3
 输出: 28
 
@@ -41,32 +39,32 @@ LET m = 5, n = 2       5
 </pre>
 
 <script>
-    /**
-     * @param {number} m
-     * @param {number} n
-     * @return {number}
-     */
-    let m = 7, n = 3;
-    let uniquePaths = function (m, n) {
+/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ */
+let m = 7, n = 3;
+let uniquePaths = function (m, n) {
 
-        let list = getList(m, n);
-        return list[m - 1][n - 1];
+    let list = getList(m, n);
+    return list[m - 1][n - 1];
 
-        function getList(m, n) {
-            let list = new Array(m);
-            for (let i = 0; i < m; i++) {
-                let arr = new Array(n);
-                for (let j = 0; j < n; j++) {
-                    if (i === 0 || j === 0) arr[j] = 1;
-                    else {
-                        arr[j] = list[i - 1][j] + arr[j - 1];
-                    }
+    function getList(m, n) {
+        let list = new Array(m);
+        for (let i = 0; i < m; i++) {
+            let arr = new Array(n);
+            for (let j = 0; j < n; j++) {
+                if (i === 0 || j === 0) arr[j] = 1;
+                else {
+                    arr[j] = list[i - 1][j] + arr[j - 1];
                 }
-                list[i] = arr;
             }
-            return list;
+            list[i] = arr;
         }
-    };
+        return list;
+    }
+};
 </script>
 </body>
 </html>

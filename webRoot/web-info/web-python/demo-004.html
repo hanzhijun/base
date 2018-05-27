@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>004</title>
+</head>
+<body>
+<pre>
+题目：输入某年某月某日，判断这一天是这一年的第几天？
+
+程序分析：以3月5日为例，应该先把前两个月的加起来，然后再加上5天即本年的第几天，特殊情况，闰年且输入月份大于2时需考虑多加一天：
+</pre>
+
+<p>请选择日期：<input id="testDate" type="date">
+    <button onclick="demo004()">确定</button>
+</p>
+
+<script>
+    let demo004 = function () {
+        let str = document.getElementById('testDate').value;
+        let strs = str.split('-');
+        let year = strs[0] * 1;
+        let month = strs[1] * 1;
+        let day = strs[2] * 1;
+        let list = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        let result = 0;
+        for (let i = 0; i < month - 1; i++) {
+            result += list[i];
+            if (i == 2 && year / 4 % 4 == 0) {
+                result += 1;
+            }
+        }
+        result += day;
+        console.log(result);
+    }
+</script>
+</body>
+</html>

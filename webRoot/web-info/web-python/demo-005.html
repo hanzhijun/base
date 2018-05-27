@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>005</title>
+</head>
+<body>
+<pre>
+题目：输入三个整数x,y,z，请把这三个数由小到大输出。
+
+程序分析：我们想办法把最小的数放到x上，先将x与y进行比较，如果x>y则将x与y的值进行交换，然后再用x与z进行比较，如果x>z则将x与z的值进行交换，这样能使x最小。
+</pre>
+
+<p>请输入三个整数：<input id="test01" type="number"> <input id="test02" type="number"> <input id="test03" type="number">
+    <button onclick="demo005()">确定</button>
+</p>
+<script>
+    let demo005 = function () {
+        let str1 = document.getElementById('test01').value;
+        let str2 = document.getElementById('test02').value;
+        let str3 = document.getElementById('test03').value;
+
+        let strs = [str1, str2, str3];
+        strs.sort((x, y) => x - y);
+        console.log(strs[0]);
+        console.log(strs[1]);
+        console.log(strs[2]);
+    }
+</script>
+</body>
+</html>

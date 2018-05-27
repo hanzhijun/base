@@ -13,28 +13,27 @@
 说明：一个单词是指由字母组成，但不包含任何空格的字符串。
 
 示例:
-
 输入: "Hello World"
 输出: 5
 </pre>
 
 <script>
-    /**
-     * @param {string} s
-     * @return {number}
-     */
-    var lengthOfLastWord = function (s) {
+/**
+ * @param {string} s
+ * @return {number}
+ */
+let lengthOfLastWord = function (s) {
 
-        s = s.trim();
-        if (s == "") return 0;
-        s = s.split('').reverse().join('');
-        if (s.indexOf(' ') != -1) {
-            return s.indexOf(' ');
-        } else {
-            return s.length;
-        }
+    s = s.trim();
+    if (s == "") return 0;
+    s = s.split('').reverse().join('');
+    if (s.indexOf(' ') != -1) {
+        return s.indexOf(' ');
+    } else {
+        return s.length;
+    }
 
-    };
+};
 </script>
 </body>
 </html>

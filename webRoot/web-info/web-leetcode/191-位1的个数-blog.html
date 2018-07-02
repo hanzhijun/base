@@ -23,27 +23,27 @@
 </pre>
 
 <script>
-    /**
-     * @param {number} n - a positive integer
-     * @return {number}
-     * 1   1
-     * 2   10
-     * 3   11
-     * 4   100
-     * 5   101
-     * 6   110
-     * 7   111
-     * 8   1000
-     */
-    var hammingWeight = function (n) {
-        if (n == 0) return 0;
-        let result = 1;
-        while (n > 2) {
-            result += n % 2;
-            n = Math.floor(n / 2);
-        }
-        return result;
-    };
+/**
+ * @param {number} n - a positive integer
+ * @return {number}
+ * 1   1
+ * 2   10
+ * 3   11
+ * 4   100
+ * 5   101
+ * 6   110
+ * 7   111
+ * 8   1000
+ */
+var hammingWeight = function (n) {
+    if (n == 0) return 0;
+    let result = 1;
+    while (n > 2) {
+        result += n % 2;
+        n = Math.floor(n / 2);
+    }
+    return result;
+};
 </script>
 </body>
 </html>

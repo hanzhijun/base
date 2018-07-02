@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>nodeJs study</title>
+</head>
+<body>
+<pre>
+    nodejs 应用领域： restful API、实时通信、高并发、I/O阻塞、
+    nodejs 社区与生态圈：
+        社区：生于社区、社区推进、Github、国内
+        生态圈：以NPM为中心、基础服务提供商的支持、周边服务提供商的支持
+    开源项目：express、pm2、jade
+    IO.js: Joyent的目标：兼容性、性能  社区：new features
+
+    node js 与 javascript 的诞生。
+    javascript 的诞生，1995年，Branden Eich, 10天时间。
+
+    ECMAScript 与 DOM / BOM
+
+    一个完整的javascript 包括：
+        ECMAScript  语法和基本对象
+        DOM  文档对象模型:描述处理网页内容的方法与结构
+        BOM  浏览器对象模型:描述与浏览器进行交互的方法与结构
+
+    前端框架
+        DOM操作： jQuery / ExtJS / YUI
+
+    结构化前端框架： AngularJS / Backbone.js / Ember.js
+
+    在服务器上运行javascript的尝试
+
+    Rhino 引擎
+    javax.script API
+
+/*****************************************
+
+    Node.js的特点：
+    部署简单方便   ：环境配置简单，注重约定，项目所需要的扩展，插件，资源相对独立，不易冲突
+    事件驱动       ：主要观点，根据当前出现的事件，调动资源进行相关的处理。
+    异步编程       ：异步的实现方式，回调函数，事件监听，订阅/发布，
+    高效与性能     ：通过优化资源调配和I/O操作来实现高效，
+    单线程与多线程 ： Google V8是单线程的，所以node.js同样是单进程的，为了更好的利用CPU资源，可以利用子进程和多进程
+                      子进程：Node.js的child_process模块
+
+/***********************************/
+
+    web应用的基本组件
+    1. GUI (浏览器，HTTP客户端)
+    2. web服务器(node.js service)
+        请求，
+        业务逻辑，
+        连接数据库
+    3. 数据库(SQLite，LevelDB，Redis)
+
+    GET /yorkie HTTP/1.1  请求的方法（get post）、请求的路径，http使用的版本
+    Host: github.com      要访问的服务的域名
+    Connection: keep-alive
+    Cache-Control: max-age=0
+    Accept: text/html,application/xhtml
+    User-Agent: My iPhone
+    Accept-Encoding: gzip, deflate, sdch
+
+
+    GET /pcform HTTP/1.1
+    Host: acq.itxdl.cn
+    Proxy-Connection: keep-alive
+    Upgrade-Insecure-Requests: 1
+    User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3312.0 Safari/537.36
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+    Referer: http://h5.itxdl.cn/?bdpcjj_h5_rumen_1685_bjh5&b_scene_zt=1&audience=209295
+    Accept-Encoding: gzip, deflate
+    Accept-Language: zh-CN,zh;q=0.9
+
+
+</pre>
+
+</body>
+</html>

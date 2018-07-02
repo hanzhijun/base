@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>198-打家劫舍</title>
+    <script src="../../../../../桌面/随手记.js"></script>
+    <script src="../../../../../桌面/js学习乱写.js"></script>
+</head>
+<body>
+<script>
+    /**
+     * @param {number[]} nums
+     * @return {number}
+     */
+    var rob = function(nums) {
+        nums.unshift(0);
+        var len=nums.length;
+        var r=0;
+        d(0,0);
+        d(1,nums[1]);
+        function d(i,s){
+            if((i+2)>=len){
+                if(s>r) r=s;
+            }else{
+                for(let j=i+2;j<i+4;j++){
+                    if(j<len){
+                        d(j,s+nums[j]);
+                    }
+                }
+            }
+        }
+        return r;
+    };
+</script>
+</body>
+</html>

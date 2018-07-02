@@ -23,25 +23,25 @@
 </pre>
 
 <script>
-    /**
-     * @param {number[]} nums
-     * @return {number}
-     */
-    var singleNumber = function (nums) {
-        let len = nums.length;
-        nums = nums.sort((x, y) => x - y);
-        if (nums[0] != nums[1]) {
-            return nums[0];
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNumber = function (nums) {
+    let len = nums.length;
+    nums = nums.sort((x, y) => x - y);
+    if (nums[0] != nums[1]) {
+        return nums[0];
+    }
+    if (nums[len - 1] != nums[len - 2]) {
+        return nums[len - 1];
+    }
+    for (let i = 4; i < len - 3; i += 3) {
+        if (nums[i] != nums[i + 1]) {
+            return nums[i];
         }
-        if (nums[len - 1] != nums[len - 2]) {
-            return nums[len - 1];
-        }
-        for (let i = 4; i < len - 3; i += 3) {
-            if (nums[i] != nums[i + 1]) {
-                return nums[i];
-            }
-        }
-    };
+    }
+};
 </script>
 </body>
 </html>

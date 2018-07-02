@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证回文串</title>
+</head>
+<body>
+<pre>
+给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+
+说明：本题中，我们将空字符串定义为有效的回文串。
+
+示例 1:
+
+输入: "A man, a plan, a canal: Panama"
+输出: true
+示例 2:
+
+输入: "race a car"
+输出: false
+</pre>
+
+<script>
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+let s = "A man, a plan, a canal: Panama";
+let isPalindrome = function (s) {
+
+    let len = s.length;
+    if (len == 0 || len == 1) return true;
+    s = s.toLowerCase(); // 转小写
+    s = s.replace(/[^a-z0-9]/g, ""); // 保留字母与数字
+    len = s.length;
+    let str = "#";
+    for (let i = 0; i < len; i++) {
+        str += s[i] + "#";
+    }
+
+    len = str.length;
+    for (let j = 1; j < Math.floor(len / 2); j++) {
+        if (str[j] != str[len - (j + 1)]) {
+            return false;
+        }
+    }
+    return true;
+
+};
+</script>
+</body>
+</html>
